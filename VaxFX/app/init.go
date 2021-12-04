@@ -3,7 +3,11 @@ package app
 import (
 	"github.com/revel/revel"
 	_ "github.com/revel/modules"
+	_ "github.com/go-sql-driver/mysql"
+	"github.com/jinzhu/gorm"
 
+	"VaxFX/app/models"
+	"fmt"
 )
 
 var (
@@ -14,7 +18,9 @@ var (
 	BuildTime string
 )
 
-/*func InitDB() {
+var DB *gorm.DB
+
+func InitDB() {
 	
 	var err error
 	dbInfo, _ := revel.Config.String("db.info")
@@ -23,8 +29,9 @@ var (
 		fmt.Printf("Failed gorm.Open: %v\n", err)
 		panic("")
 	}
-	//DB.CreateTable(&models.Account{})
-}*/
+	//DB.DropTable(&models.Account{})
+	DB.CreateTable(&models.Form{})
+}
 
 func init() {
 	// Filters is the default set of global filters.
@@ -48,7 +55,7 @@ func init() {
 	// revel.DevMode and revel.RunMode only work inside of OnAppStart. See Example Startup Script
 	// ( order dependent )
 	// revel.OnAppStart(ExampleStartupScript)
-	//revel.OnAppStart(InitDB)
+	revel.OnAppStart(InitDB)
 	// revel.OnAppStart(FillCache)
 }
 
