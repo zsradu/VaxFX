@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+     <div>
+        <p>Select county</p>
+        <select size="1" id="counties" onchange="update()">
+        </select>
+    </div>
+
+    <div id="incidenta_judet"></div>
+
+    <script>
+        var countiesId = ["-none-", "AB", "AR", "AG", "BC", "BH", "BN", "BT", "BV", "BR", "B", "BZ", "CS", "CL", "CJ", "CT", "CV", "DB", "DJ", "GL", "GR", "GJ", "HR", "HD", "IL",
+                     "IS", "IL", "MM", "MH", "MS", "NT", "OT", "PH", "SM", "SJ", "SB", "SV", "TR", "TM", "TL", "VS", "VL", "VN"];
+        var counties = ["-none-", "Alba", "Arad", "Arges", "Bacau", "Bihor", "Bistrita-Nasaud", "Botosani", "Brasov", "Braila", "Bucharest", "Buzau", "Caras-Severin", "Calarasi", 
+                    "Cluj", "Constanta", "Covasna", "Dambovita", "Dolj", "Galati", "Giurgiu", "Gorj", "Harghita", "Hunedoara", "Ialomita", "Iasi", "Ilfov",
+                    "Maramures", "Mehedinti", "Mures", "Neamt", "Olt", "Prahova", "Satu Mare", "Salaj", "Sibiu", "Suceava", "Teleorman", "Timis", "Tulcea",
+                    "Vaslui", "Valcea", "Vrancea"];
+        var population = [0, 342376,430629,612431,616168,575398,286225,412626,549217,321212,1883425,451069,295579,306691,691106,684082,210177,
+                        518745,660544,536167,281422,341594,310867,418565,274148,772348,388738,478659,265390,550846,470766,436400,762886,
+                        344360,224384,397322,634810,380123,683540,213083,395499,371714,340310];
+
+        populateCombo(emptyCombo(document.querySelector('#counties')), counties);
+
+        // functions
+        function update() {
+            var select = document.getElementById('counties');
+            var idx = select.value;
+            var countyId = countiesId[idx];
+            var tag_id = document.getElementById('incidenta_judet');
+            while (tag_id.firstChild) {
+                tag_id.removeChild(tag_id.lastChild);
+            }
+
+            // var text = document.createElement('p');
+            if (idx > 0) {
+                var ifrm = document.createElement('iframe');
+                // text.innerHTML = "Covid19 incidence in " + counties[idx] + ": " + population[idx];
+                ifrm.setAttribute("src", "https://www.graphs.ro/embed.php?embed=covid_judet&judet_id=" + countyId );
+                ifrm.setAttribute("width", "100%");
+                ifrm.setAttribute("height", "750");
+                tag_id.appendChild(ifrm);
+            }
+           
+            // tag_id.appendChild(text);
+        }
+
+        function emptyCombo(selectEl) {
+            selectEl.options.length = 0;
+            return selectEl;
+        }
+
+        function populateCombo(selectEl, list) {
+            for ( i = 0; i < 42; i += 1 ) {
+                option = document.createElement( 'option' );
+                option.value = i;
+                option.text = list[i];
+                selectEl.add( option );
+            }
+        }
+    </script>
+
+    <div class="row">
+        <iframe class="column" scrolling="no" src="https://datelazi.ro/embed/counties-map"></iframe>
+        <iframe class="column" src="https://ourworldindata.org/grapher/total-cases-covid-19?tab=map"></iframe>
+    </div>
+
+    <br>
+    <div>
+        <p>Vaccination against Coronavirus is our only weapon of defense and so we must increase awareness among the population and promote vaccination.
+            Here we provide a general view regarding the statistics of vaccination worldwide and also more detailed statistics for Romania.
+        </p>
+    </div>
+    <div class="centered">  
+        <h4>Data provided by
+            <a href="https://ourworldindata.org/">Our World in Data</a>,
+            <a href="https://datelazi.ro/">Date la Zi</a>,
+            <a href="https://www.graphs.ro/">Graphs.ro</a>
+        </h4>
+    </div>
+</body>
+
+</html>
