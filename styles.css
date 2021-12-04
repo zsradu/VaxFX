@@ -1,35 +1,59 @@
+html, body {
+	 min-height: 100%;
+	 margin: 0;
+}
+ body {
+	 padding: 30px;
+	 background-image: linear-gradient(135deg, #dce2eb 0%, #c3b8e9 100%);
+	 box-sizing: border-box;
+     font-family: optima;
+}
+
+@font-face {
+    font-family: optima;
+    src: url(optima_medium-webfont.woff);
+}
+
 p {
-
+    font-size: 20px;
+    font-family: optima;
 }
 
-body {
-    background-color:aliceblue;
-}
-
-/* Add a black background color to the top navigation */
 .topnav {
-    background-color: #333;
+    padding-right: 100px;
     overflow: hidden;
   }
-  
-  /* Style the links inside the navigation bar */
-  .topnav a {
-    float: left;
-    color: #f2f2f2;
+
+.topnav a {
+    float: right;
+    color: #263050;
     text-align: center;
-    padding: 14px 16px;
+    padding: 20px 15px;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 20px;
+    font-family: Merriweather;
   }
-  
-  /* Change the color of links on hover */
-  .topnav a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-  
-  /* Add a color to the active/current link */
-  .topnav a.active {
-    background-color: #04AA6D;
-    color: white;
-  }
+
+.form1 {
+    font-size: 20px;
+    display: block;
+    text-align: center;
+}
+
+.form2 {
+    font-size: 20px;
+    display: none;
+    text-align: center;
+}
+
+.form3 {
+    font-size: 20px;
+    display: none;
+    text-align: center;
+}
+
+.checkboxes {
+    font-size: 20px;
+    display: none;
+    text-align: center;
+}
