@@ -1,7 +1,11 @@
-p {}
-
 body {
     background-color: aliceblue;
+}
+
+div {
+    width: device-width;
+    padding: 50px;
+    margin: 20px;
 }
 
 
@@ -40,13 +44,32 @@ body {
     color: white;
 }
 
-.centered-small {
-    margin: 0 auto;
-    text-align: center;
-    max-width: 500px;
+body,
+html {
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+    margin-top: 5%;
 }
 
-.centered-big {
-    margin: 0 auto;
+
+/* For side by side figures */
+
+.row {
+    display: flex;
+}
+
+.column {
+    flex: 50%;
+    padding: 10px;
     text-align: center;
+    height: 60vh;
+}
+
+.centered {
+    text-align: center;
+}
+
+iframe {
+    border-style: groove;
 }
