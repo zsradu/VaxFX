@@ -1,45 +1,182 @@
-Pagina cu efecte secundare vaccin, luata din baza de date de la submit.html
+<!DOCTYPE html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<!-- <style>
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+    .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+    .fa-anchor,.fa-coffee {font-size:200px}
+</style> -->
+
+<body>
+
+    <!-- Navbar -->
+    <div class="w3-top">
+        <div class="w3-bar w3-light-green w3-card w3-left-align w3-large">
+            <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red"
+                href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i
+                    class="fa fa-bars"></i></a>
+            <a href="/submit" class="w3-bar-item w3-button w3-padding-large w3-green">Submit</a>
+            <a href="/secondary-effects"
+                class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Side Effects</a>
+            <a href="/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Vaccination Data</a>
+        </div>
+
+        <!-- Navbar on small screens -->
+        <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+            <a href="/submit" class="w3-bar-item w3-button w3-padding-large w3-green">Submit</a>
+            <a href="/secondary-effects"
+                class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Side Effects</a>
+            <a href="/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Vaccination Data</a>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="w3-container w3-light-green w3-center" style="padding:100px 16px">
+        <h1 class="w3-margin w3-jumbo">How do people feel after getting vaccinated?</h1>
+        <p class="w3-xlarge">Find out what they say</p>
+    </header>
 
 
-<h3>Out of {{.TotalUsers1}} entries, there have been reported
-    these following secondary effects after the first dose of the vaccine:</h3> <br>
-<p>{{.Headaches1}} headaches</p>
-<p>{{.Fevers1}} symptoms of fever</p>
-<p>{{.Dizzinesses1}} episodes of dizziness</p>
-<p>{{.Exhaustions1}} feelings of exhaustion</p>
-<p>{{.ArmPains1}} episodes of pain in the arm</p>
-<p>{{.Nauseas1}} symptoms of nausea</p>
-<p>Most symptoms were found for the {{.WorstVax1}} vaccine.</p>
+    <!-- First Grid -->
+    <div class="w3-row-padding w3-padding-64 w3-container">
+        <div class="w3-content" style="max-width: 1100px;">
+            <div class="w3-twothird" style="padding: 16px;">
+                <h3>Out of {{.TotalUsers1}} entries, there have been reported these following secondary effects after
+                    the first dose of the vaccine:</h3>
+                <ul>
+                    <li>
+                        <p>{{.Headaches1}} headaches</p>
+                    </li>
+                    <li>
+                        <p>{{.Fevers1}} symptoms of fever</p>
+                    </li>
+                    <li>
+                        <p>{{.Dizzinesses1}} episodes of dizziness</p>
+                    </li>
+                    <li>
+                        <p>{{.Exhaustions1}} feelings of exhaustion</p>
+                    </li>
+                    <li>
+                        <p>{{.ArmPains1}} episodes of pain in the arm</p>
+                    </li>
+                    <li>
+                        <p>{{.Nauseas1}} symptoms of nausea</p>
+                    </li>
+                    <li>
+                        <p>Most symptoms were found for the {{.WorstVax1}} vaccine.</p>
+                    </li>
+                </ul>
+            </div>
+            <p></p>
+            <div class="w3-third w3-center" style="padding: 16px;">
+                <p></p>
+            </div>
+        </div>
+    </div>
 
-<br><br>
+    <!-- Second Grid -->
+    <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+        <div class="w3-content" style="max-width: 1100px;">
+            <div class="w3-third w3-center" style="padding: 16px;">
+                <p></p>
+            </div>
 
-<h3>For the second dose of the vaccine, out of {{.TotalUsers2}} entries,
-    there have been reported these following secondary effects:</h3> <br>
-<p>{{.Headaches2}} headaches, from which most from {{.HeadVax2}} vaccine</p>
-<p>{{.Fevers2}} symptoms of fever, from which most from {{.FevVax2}} vaccine</p>
-<p>{{.Dizzinesses2}} episodes of dizziness, from which most from {{.DizVax2}} vaccine</p>
-<p>{{.Exhaustions2}} feelings of exhaustion, from which most from {{.ExhVax2}} vaccine</p>
-<p>{{.ArmPains2}} episodes of pain in the arm, from which most from {{.ArmVax2}} vaccine</p>
-<p>{{.Nauseas2}} symptoms of nausea, from which most from {{.NausVax2}} vaccine</p>
+            <div class="w3-twothird" style="padding: 16px;">
+                <h3>For the second dose of the vaccine, out of {{.TotalUsers2}} entries,
+                    there have been reported these following secondary effects:</h3>
+                <ul>
+                    <li>
+                        <p>{{.Headaches2}} headaches</p>
+                    </li>
+                    <li>
+                        <p>{{.Fevers2}} symptoms of fever</p>
+                    </li>
+                    <li>
+                        <p>{{.Dizzinesses2}} episodes of dizziness</p>
+                    </li>
+                    <li>
+                        <p>{{.Exhaustions2}} feelings of exhaustion</p>
+                    </li>
+                    <li>
+                        <p>{{.ArmPains2}} episodes of pain in the arm</p>
+                    </li>
+                    <li>
+                        <p>{{.Nauseas2}} symptoms of nausea</p>
+                    </li>
+                    <li>
+                        <p>Most symptoms were found for the {{.WorstVax2}} vaccine.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-<br><br><br><br>
+    <!-- Third Grid -->
+    <div class="w3-row-padding w3-padding-64 w3-container">
+        <div class="w3-content" style="max-width: 1100px;">
+            <div class="w3-twothird" style="padding: 16px;">
+                <h3>For the booster shot, out of {{.TotalUsers3}} entries,
+                    there have been reported these following secondary effects:</h3>
+                <ul>
+                    <li>
+                        <p>{{.Headaches3}} headaches</p>
+                    </li>
+                    <li>
+                        <p>{{.Fevers3}} symptoms of fever</p>
+                    </li>
+                    <li>
+                        <p>{{.Dizzinesses3}} episodes of dizziness</p>
+                    </li>
+                    <li>
+                        <p>{{.Exhaustions3}} feelings of exhaustion</p>
+                    </li>
+                    <li>
+                        <p>{{.ArmPains3}} episodes of pain in the arm</p>
+                    </li>
+                    <li>
+                        <p>{{.Nauseas3}} symptoms of nausea</p>
+                    </li>
+                    <li>
+                        <p>Most symptoms were found for the {{.WorstVax3}} vaccine.</p>
+                    </li>
+                </ul>
+            </div>
+            <p></p>
+            <div class="w3-third w3-center" style="padding: 16px;">
+                <p></p>
+            </div>
+        </div>
+    </div>
 
-<h3>For the booster, out of {{.TotalUsers2}} entries,
-    there have been reported these following secondary effects:</h3> <br>
-<p>{{.Headaches3}} headaches, from which most from {{.HeadVax3}} vaccine</p>
-<p>{{.Fevers3}} symptoms of fever, from which most from {{.FevVax3}} vaccine</p>
-<p>{{.Dizzinesses3}} episodes of dizziness, from which most from {{.DizVax3}} vaccine</p>
-<p>{{.Exhaustions3}} feelings of exhaustion, from which most from {{.ExhVax3}} vaccine</p>
-<p>{{.ArmPains3}} episodes of pain in the arm, from which most from {{.ArmVax3}} vaccine</p>
-<p>{{.Nauseas3}} symptoms of nausea, from which most from {{.NausVax3}} vaccine</p>
+    <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+        <h1 class="w3-content w3-large">Your honest reports keep others updated and help them make informed decisions!
+        </h1>
+    </div>
 
+    <!-- Footer -->
+    <footer class="w3-container w3-padding-64 w3-center w3-opacity">
+        <p>Powered by Albanians</p>
+    </footer>
 
+    <script>
+        // Used to toggle the menu on small screens when clicking on the menu button
+        function myFunction() {
+            var x = document.getElementById("navDemo");
+            if (x.className.indexOf("w3-show") == -1) {
+                x.className += " w3-show";
+            } else {
+                x.className = x.className.replace(" w3-show", "");
+            }
+        }
+    </script>
 
+</body>
 
-<br>
-<a href="/">Submit</a>
-<br>
-<a href="/secondary-effects">Secondary effects data</a>
-<br>
-<a href="/covid-vaccine-data">Covid vaccination data</a>
-<br>
+</html>

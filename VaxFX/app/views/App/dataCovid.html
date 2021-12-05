@@ -1,9 +1,174 @@
-Pagina cu date despre covid, luate cu API.
+<!DOCTYPE html>
 
-<br>
-<a href="/">Submit</a>
-<br>
-<a href="/secondary-effects">Secondary effects data</a>
-<br>
-<a href="/covid-vaccine-data">Covid vaccination data</a>
-<br>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="public/css/styles2.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class="w3-top">
+        <div class="w3-bar w3-light-green w3-card w3-left-align w3-large">
+            <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red"
+                href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i
+                    class="fa fa-bars"></i></a>
+            <a href="/submit" class="w3-bar-item w3-button w3-padding-large w3-green">Submit</a>
+            <a href="/secondary-effects"
+                class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Side Effects</a>
+            <a href="/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Vaccination Data</a>
+        </div>
+
+        <!-- Navbar on small screens -->
+        <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+            <a href="/submit" class="w3-bar-item w3-button w3-padding-large w3-green">Submit</a>
+            <a href="/secondary-effects"
+                class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Side Effects</a>
+            <a href="/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Vaccination Data</a>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="w3-container w3-light-green w3-center" style="padding:100px 16px">
+        <h1 class="w3-margin w3-jumbo">What places are safe right now?</h1>
+        <p class="w3-xlarge">Stay informed about the risks you may be exposed to</p>
+    </header>
+
+    <div class="w3-content w3-center w3-padding-64">
+        <h1>Infections with COVID-19 in the last 14 days by county</h1>
+        <h5>Select county</h5>
+        <select size="1" id="counties" onchange="update()">
+        </select>
+    </div>
+
+    <div>
+        <div class="w3-content" id="incidenta_judet" style="padding-bottom: 64px;"></div>
+    </div>
+
+    <!-- First Grid -->
+    <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container w3-center">
+        <h1>Incidence over the last 14 days by county</h1>
+        <div class="w3-content w3-padding-64" style="max-width: 1400px;">
+            <div class="w3-twothird w3-left-align" style="padding: 16px;">
+                <iframe height="750px" width="75%" scrolling="no" src="https://datelazi.ro/embed/counties-map"></iframe>
+            </div>
+            <div class="w3-third w3-left-align" style="padding: 16px; position: relative; right:32px">
+                <h5 class="w3-padding-32">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat.</h5>
+
+                <p class="w3-text-grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint
+                    occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+                    consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                    enim ad minim veniam, quis nostrud exercitation ullamco
+                    laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Second Grid -->
+    <div class="w3-row-padding w3-padding-64 w3-container w3-center">
+        <h1>Total confirmed cases by country</h1>
+        <div class="w3-content w3-padding-64" style="max-width: 1400px;">
+            <div class="w3-third w3-left-align" style="padding: 16px; position: relative; left:32px">
+                <h5 class="w3-padding-32">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat.</h5>
+
+                <p class="w3-text-grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint
+                    occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+                    consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                    enim ad minim veniam, quis nostrud exercitation ullamco
+                    laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+            <div class="w3-twothird w3-right-align" style="padding: 16px">
+                <iframe height="750px" width="75%"
+                    src="https://ourworldindata.org/grapher/total-cases-covid-19?tab=map"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="w3-content w3-padding-64">
+        <h5>
+        </h5>
+    </div> -->
+
+    <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+        <h1 class="w3-content w3-large">Vaccination against Coronavirus is our only weapon of defense and so we must
+            increase awareness among the population and promote vaccination.
+            Here we provide a general view regarding the statistics of vaccination worldwide and also more detailed
+            statistics for Romania.</h1>
+    </div>
+
+    <!-- Footer -->
+    <footer class="w3-container w3-padding-64 w3-center w3-opacity">
+        <p>Data provided by
+            <a href="https://ourworldindata.org/">Our World in Data</a>,
+            <a href="https://datelazi.ro/">Date la Zi</a>,
+            <a href="https://www.graphs.ro/">Graphs.ro</a>
+        </p>
+        <p>Powered by Albanians</p>
+    </footer>
+
+    <script>
+        var countiesId = ["-none-", "AB", "AR", "AG", "BC", "BH", "BN", "BT", "BV", "BR", "B", "BZ", "CS", "CL", "CJ", "CT", "CV", "DB", "DJ", "GL", "GR", "GJ", "HR", "HD", "IL",
+            "IS", "IL", "MM", "MH", "MS", "NT", "OT", "PH", "SM", "SJ", "SB", "SV", "TR", "TM", "TL", "VS", "VL", "VN"];
+        var counties = ["-none-", "Alba", "Arad", "Arges", "Bacau", "Bihor", "Bistrita-Nasaud", "Botosani", "Brasov", "Braila", "Bucharest", "Buzau", "Caras-Severin", "Calarasi",
+            "Cluj", "Constanta", "Covasna", "Dambovita", "Dolj", "Galati", "Giurgiu", "Gorj", "Harghita", "Hunedoara", "Ialomita", "Iasi", "Ilfov",
+            "Maramures", "Mehedinti", "Mures", "Neamt", "Olt", "Prahova", "Satu Mare", "Salaj", "Sibiu", "Suceava", "Teleorman", "Timis", "Tulcea",
+            "Vaslui", "Valcea", "Vrancea"];
+        var population = [0, 342376, 430629, 612431, 616168, 575398, 286225, 412626, 549217, 321212, 1883425, 451069, 295579, 306691, 691106, 684082, 210177,
+            518745, 660544, 536167, 281422, 341594, 310867, 418565, 274148, 772348, 388738, 478659, 265390, 550846, 470766, 436400, 762886,
+            344360, 224384, 397322, 634810, 380123, 683540, 213083, 395499, 371714, 340310];
+
+        populateCombo(emptyCombo(document.querySelector('#counties')), counties);
+
+        // functions
+        function update() {
+            var select = document.getElementById('counties');
+            var idx = select.value;
+            var countyId = countiesId[idx];
+            var tag_id = document.getElementById('incidenta_judet');
+            while (tag_id.firstChild) {
+                tag_id.removeChild(tag_id.lastChild);
+            }
+
+            if (idx > 0) {
+                var ifrm = document.createElement('iframe');
+                ifrm.setAttribute("src", "https://www.graphs.ro/embed.php?embed=covid_judet&judet_id=" + countyId);
+                ifrm.setAttribute("width", "100%");
+                ifrm.setAttribute("height", "750");
+                tag_id.appendChild(ifrm);
+            }
+        }
+
+        function emptyCombo(selectEl) {
+            selectEl.options.length = 0;
+            return selectEl;
+        }
+
+        function populateCombo(selectEl, list) {
+            for (i = 0; i < 42; i += 1) {
+                option = document.createElement('option');
+                option.value = i;
+                option.text = list[i];
+                selectEl.add(option);
+            }
+        }
+
+        function myFunction() {
+            var x = document.getElementById("navDemo");
+            if (x.className.indexOf("w3-show") == -1) {
+                x.className += " w3-show";
+            } else {
+                x.className = x.className.replace(" w3-show", "");
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -6,7 +6,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"
 
-	"VaxFX/app/models"
+	//"VaxFX/app/models"
 	"fmt"
 )
 
@@ -29,10 +29,10 @@ func InitDB() {
 		fmt.Printf("Failed gorm.Open: %v\n", err)
 		panic("")
 	}
-	DB.DropTable(&models.Form{})
-	DB.CreateTable(&models.Form{})
-	DB.DropTable(&models.Effects{})
-	DB.CreateTable(&models.Effects{})
+	//DB.DropTable(&models.Form{})
+	//DB.CreateTable(&models.Form{})
+	//DB.DropTable(&models.Effects{})
+	//DB.CreateTable(&models.Effects{})
 }
 
 func init() {

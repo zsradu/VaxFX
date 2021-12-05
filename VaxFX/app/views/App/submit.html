@@ -1,49 +1,250 @@
-Pagina care contine formularul de submit cu efecte adverse
+<!DOCTYPE html>
+<html>
 
-<br>
-<a href="/">Submit</a>
-<br>
-<a href="/secondary-effects">Secondary effects data</a>
-<br>
-<a href="/covid-vaccine-data">Covid vaccination data</a>
-<br>
-<br>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="public/css/styles2.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
 
-<form action="/" method="POST">
-    <label for="Vaccine1">Vaccine, dose 1:</label><br>
-    <select id="Vaccine1" name="Form.Vac1" size="4">
-        <option value="Pfizer">Pfizer</option>
-        <option value="Moderna">Moderna</option>
-        <option value="AstraZeneca">AstraZeneca</option>
-        <option value="Johnson & Johnson">Johnson & Johnson</option>
-    </select><br>
+<script>
+    function updateVaccine1() {
+        var selection = document.getElementById("vaccine1");
+        var text = selection.options[selection.selectedIndex].text;
+        document.getElementById("vaccine2").value = "none";
+        document.getElementById("vaccine3").value = "none";
+        if (text == "Johnson & Johnson") {
+            document.getElementById("form2").style.display = "none";
+            document.getElementById("boxes1").style.display = "block";
+            document.getElementById("form3").style.display = "block";
+            document.getElementById("boxes2").style.display = "none";
+            document.getElementById("boxes3").style.display = "none";
+            document.getElementById("submitButton").style.display = "block";
+            document.getElementById("upload").style.display = "block";
+            document.getElementById("fileSubmit").style.display = "block";
+        }
+        else {
+            if (text != "-none-") {
+                document.getElementById("boxes2").style.display = "none";
+                document.getElementById("boxes3").style.display = "none";
+                document.getElementById("form3").style.display = "none";
+                document.getElementById("submitButton").style.display = "block";
+                document.getElementById("boxes1").style.display = "block";
+                document.getElementById("form2").style.display = "block";
+                document.getElementById("fileSubmit").style.display = "block";
+                document.getElementById("upload").style.display = "block";
+            }
+            else {
+                document.getElementById("boxes1").style.display = "none";
+                document.getElementById("boxes2").style.display = "none";
+                document.getElementById("boxes3").style.display = "none";
+                document.getElementById("form2").style.display = "none";
+                document.getElementById("form3").style.display = "none";
+                document.getElementById("submitButton").style.display = "none";
+                document.getElementById("upload").style.display = "none";
+                document.getElementById("fileSubmit").style.display = "none";
+            }
+        }
+    }
 
-    <label for="Effects1">Adverse effects, dose 1:</label><br>
-    <input type="checkbox" name="E1Name1">
-    <label for="Effects1">Durere de cap</label><br>
-    <input type="checkbox" name="E1Name2">
-    <label for="Effects1">Febra</label><br>
-    <input type="checkbox" name="E1Name3">
-    <label for="Effects1">Ameteala</label><br>
-    <input type="checkbox" name="E1Name4">
-    <label for="Effects1">Greata</label><br>
+    function updateVaccine2() {
+        document.getElementById("vaccine3").value = "none";
+        var selection = document.getElementById("vaccine2");
+        var text = selection.options[selection.selectedIndex].text;
+        if (text != "-none-") {
+            document.getElementById("boxes2").style.display = "block";
+            document.getElementById("form3").style.display = "block";
+        }
+        else {
+            document.getElementById("boxes2").style.display = "none";
+            document.getElementById("boxes3").style.display = "none";
+            document.getElementById("form3").style.display = "none";
+        }
+    }
 
-    <label for="Vaccine2">Vaccine, dose 2:</label><br>
-    <select id="vac2" name="Form.Vac2" size="4">
-        <option value="Pfizer">Pfizer</option>
-        <option value="Moderna">Moderna</option>
-        <option value="AstraZeneca">AstraZeneca</option>
-        <option value="Johnson & Johnson">Johnson & Johnson</option>
-    </select><br>
+    function updateVaccine3() {
+        var selection = document.getElementById("vaccine3");
+        var text = selection.options[selection.selectedIndex].text;
+        if (text != "-none-") {
+            document.getElementById("boxes3").style.display = "block";
+        }
+        else {
+            document.getElementById("boxes3").style.display = "none";
+        }
+    }
 
-    <label for="Effects2">Adverse effects, dose 2:</label><br>
-    <input type="checkbox" name="E2Name1">
-    <label for="Effects2">Headache</label><br>
-    <input type="checkbox" name="E2Name2">
-    <label for="Effects2">Fever</label><br>
-    <input type="checkbox" name="E2Name3">
-    <label for="Effects2">Dizziness</label><br>
-    <input type="checkbox" name="E2Name4">
-    <label for="Effects2">Exhaustion</label><br>
-    <input type="submit" value="Submit!" />
-</form>
+    function checkData() {
+        var minimumData1 = document.getElementById("vaccine1");
+        var text1 = minimumData1.options[minimumData1.selectedIndex].text;
+        if (text1 == "-none-") {
+            alert("You didnt pick any of the options!");
+        }
+    }
+
+</script>
+
+<body>
+    <!-- Navbar -->
+    <div class="w3-top">
+        <div class="w3-bar w3-light-green w3-card w3-left-align w3-large">
+            <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red"
+                href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i
+                    class="fa fa-bars"></i></a>
+            <a href="/submit" class="w3-bar-item w3-button w3-padding-large w3-green">Submit</a>
+            <a href="/secondary-effects"
+                class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Side Effects</a>
+            <a href="/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Vaccination Data</a>
+        </div>
+
+        <!-- Navbar on small screens -->
+        <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+            <a href="/submit" class="w3-bar-item w3-button w3-padding-large w3-green">Submit</a>
+            <a href="/secondary-effects"
+                class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Side Effects</a>
+            <a href="/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Vaccination Data</a>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="w3-container w3-light-green w3-center" style="padding:100px 16px">
+        <h1 class="w3-margin w3-jumbo">Welcome to our secondary effects report platform!</h1>
+        <p class="w3-xlarge">Help us understand how you felt after vaccination</p>
+    </header>
+
+
+    <div class="w3-content w3-padding-64 w3-center" style="max-width: 1400px;">
+        <div class="w3-content w3-padding-32" style="max-width: 1400px;">
+            <h2>Our platform allows users to submit data about their experience regarding Covid-19 vaccines. You can do
+                the same below:</h2>
+        </div>
+        <form action="/submit" method="POST">
+            <div class="w3-center">
+                <div class="selectForm" id="form1">
+                    <label for="form1">
+                        <h5>Select first dose:</h5>
+                    </label>
+                    <select id="vaccine1" name="Form.Vac1" onchange=updateVaccine1()>
+                        <option value="" selected>-none-</option>
+                        <option value="Pfizer">Biontech/Pfizer</option>
+                        <option value="Moderna">Moderna</option>
+                        <option value="AstraZeneca">Astrazeneca</option>
+                        <option value="Johnson & Johnson">Johnson & Johnson</option>
+                    </select>
+                </div>
+                <div class="boxes invisible container" id="boxes1">
+                    <!-- <form id="formCheckboxes1"> -->
+                    <br>
+                    <label for="formCheckboxes1">
+                        <h4>Select the secondary effects that you experienced:</h4>
+                    </label>
+                    <input type="checkbox" id="effect1" name="E1Name1">
+                    <label for="Effects1">Headache</label><br><br>
+                    <input type="checkbox" id="effect2" name="E1Name2">
+                    <label for="Effects1">Fever</label><br><br>
+                    <input type="checkbox" id="effect3" name="E1Name3">
+                    <label for="Effects1">Dizziness</label> <br> <br>
+                    <input type="checkbox" id="effect4" name="E1Name4">
+                    <label for="Effects1">Exhaustion</label><br><br>
+                    <input type="checkbox" id="effect5" name="E1Name5">
+                    <label for="Effects1">Arm pain</label><br><br>
+                    <input type="checkbox" id="effect6" name="E1Name6">
+                    <label for="Effects1">Nausea</label><br><br>
+                    <!-- </form> -->
+                </div>
+                <div class="selectForm invisible" id="form2">
+                    <label for="form2">
+                        <h5>Select second dose:</h5>
+                    </label>
+                    <select id="vaccine2" name="Form.Vac2" onchange=updateVaccine2()>
+                        <option value="" selected>-none-</option>
+                        <option value="Pfizer">Biontech/Pfizer</option>
+                        <option value="Moderna">Moderna</option>
+                        <option value="AstraZeneca">Astrazeneca</option>
+                        <option value="Johnson & Johnson">Johnson & Johnson</option>
+                    </select>
+                </div>
+                <div class="boxes invisible" id="boxes2">
+                    <!-- <form id="formCheckboxes1"> -->
+                    <br>
+                    <label for="formCheckboxes1">
+                        <h4>Select the secondary effects that you experienced:</h4>
+                    </label>
+                    <input type="checkbox" id="effect7" name="E2Name1">
+                    <label for="effect7">Headache</label><br><br>
+                    <input type="checkbox" id="effect8" name="E2Name2">
+                    <label for="effect8">Fever</label><br><br>
+                    <input type="checkbox" id="effect9" name="E2Name3">
+                    <label for="effect9">Dizziness</label> <br> <br>
+                    <input type="checkbox" id="effect10" name="E2Name4">
+                    <label for="effect10">Exhaustion</label><br><br>
+                    <input type="checkbox" id="effect11" name="E2Name5">
+                    <label for="effect11">Arm pain</label><br><br>
+                    <input type="checkbox" id="effect12" name="E2Name6">
+                    <label for="effect12">Nausea</label><br><br>
+
+                    <!-- </form> -->
+                </div>
+                <div class="selectForm invisible" id="form3">
+                    <label for="fo3m3">
+                        <h5>Select booster dose:</h5>
+                    </label>
+                    <select id="vaccine3" name="Form.Booster" onchange=updateVaccine3()>
+                        <option value="" selected>-none-</option>
+                        <option value="Biontech/Pfizer">Biontech/Pfizer</option>
+                        <option value="Moderna">Moderna</option>
+                        <option value="AstraZeneca">Astrazeneca</option>
+                        <option value="Johnson & Johnson">Johnson & Johnson</option>
+                    </select>
+                </div>
+                <div class="boxes invisible" id="boxes3">
+                    <!-- <form id="formCheckboxes1"> -->
+                    <br>
+                    <label for="formCheckboxes1">
+                        <h4>Select the secondary effects that you experienced:</h4>
+                    </label>
+                    <input type="checkbox" id="effect13" name="E3Name1">
+                    <label for="effect13">Headache</label><br><br>
+                    <input type="checkbox" id="effect14" name="E3Name2">
+                    <label for="effect14">Fever</label><br><br>
+                    <input type="checkbox" id="effect15" name="E3Name3">
+                    <label for="effect15">Dizziness</label> <br> <br>
+                    <input type="checkbox" id="effect16" name="E3Name4">
+                    <label for="effect16">Exhaustion</label><br><br>
+                    <input type="checkbox" id="effect17" name="E3Name5">
+                    <label for="effect17">Arm pain</label><br><br>
+                    <input type="checkbox" id="effect18" name="E3Name6">
+                    <label for="effect18">Nausea</label><br><br>
+
+                    <!-- </form> -->
+                </div>
+                <div id="upload" class="invisible" style="padding-top: 32px;">
+                    <h4>Upload green pass:</h4>
+                </div>
+                <div id="fileSubmit" class="invisible" style="padding-bottom: 32px;" required>
+                    <div class="w3-content w3-padding-large"><input type="file" id="myFile" name="MyFile"></div>
+                    <div class="w3-content"><input type="submit"></div>
+                </div>
+                <div class="w3-content w3-padding-32 w3-center">
+                    <input class="invisible w3-center w3-content" type="submit" id="submitButton" value="Submit data"
+                        onclick=checkData()>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+    <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+        <h1 class="w3-content w3-large">Vaccination against Coronavirus is our only weapon of defense and so we must
+            increase awareness among the population and promote vaccination.
+            Here we provide a general view regarding the statistics of vaccination worldwide and also more detailed
+            statistics for Romania.</h1>
+    </div>
+
+    <!-- Footer -->
+    <footer class="w3-container w3-padding-64 w3-center w3-opacity">
+        <p>Powered by Albanians</p>
+    </footer>
+</body>
+
+</html>

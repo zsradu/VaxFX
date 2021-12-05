@@ -11,6 +11,7 @@ import (
 	"io/ioutil"
 	"VaxFX/app/models"
 	"VaxFX/app"
+	"os"
 )
 
 type App struct {
@@ -44,26 +45,38 @@ func (c App) checkForQR(path string) revel.Result {
 
 func (c App) Submit() revel.Result {
 	var form models.Form
-	var effectNames1 [4]string
-	var effectNames2 [4]string
-	var effectNames3 [4]string
+	var effectNames1 [6]string
+	var effectNames2 [6]string
+	var effectNames3 [6]string
 	dataNames := []string{"Headache", "Fever", "Dizziness", "Exhaustion", "Arm pain", "Nausea"}
 	c.Params.Bind(&form, "Form")
 	c.Params.Bind(&effectNames1[0], "E1Name1")
 	c.Params.Bind(&effectNames1[1], "E1Name2")
 	c.Params.Bind(&effectNames1[2], "E1Name3")
 	c.Params.Bind(&effectNames1[3], "E1Name4")
+	c.Params.Bind(&effectNames1[4], "E1Name5")
+	c.Params.Bind(&effectNames1[5], "E1Name6")
 
 	c.Params.Bind(&effectNames2[0], "E2Name1")
 	c.Params.Bind(&effectNames2[1], "E2Name2")
 	c.Params.Bind(&effectNames2[2], "E2Name3")
 	c.Params.Bind(&effectNames2[3], "E2Name4")
+	c.Params.Bind(&effectNames2[4], "E2Name5")
+	c.Params.Bind(&effectNames2[5], "E2Name6")
 
 	c.Params.Bind(&effectNames3[0], "E3Name1")
 	c.Params.Bind(&effectNames3[1], "E3Name2")
 	c.Params.Bind(&effectNames3[2], "E3Name3")
 	c.Params.Bind(&effectNames3[3], "E3Name4")
+	c.Params.Bind(&effectNames3[4], "E3Name5")
+	c.Params.Bind(&effectNames3[5], "E3Name6")
 	c.Validation.Required(form.Vac1).Message("First dose of vaccine required for submit")
+	
+	var MyFile os.File
+	c.Params.Bind(&MyFile, "MyFile")
+	//c.Validation.Required(MyFile).Message("Green pass required for submit!")
+	
+	
 	if !c.Validation.HasErrors() {
 		var effects1 []models.Effects
 		for i, name := range effectNames1 {
@@ -96,9 +109,12 @@ func (c App) Submit() revel.Result {
 		form.Effects2 = effects2
 		form.Effects3 = effects3
 		app.DB.Create(&form)
+		return c.Render()
 	}
+	//c.Validation.Keep()
+	//c.FlashParams()
 		
-	return c.Render()
+	return c.RenderTemplate("App/submit.html")
 }
 
 func (c App) DataSecFX() revel.Result {
@@ -166,7 +182,6 @@ func (c App) DataSecFX() revel.Result {
 	mx := -1
 	mxi := -1
 	for i, _ := range maxVax {
-		fmt.Printf("Uite: %v %v\n", i, maxVax[i])
 		if maxVax[i] > mx {
 			mx = maxVax [i]
 			mxi = i
@@ -226,7 +241,6 @@ func (c App) DataSecFX() revel.Result {
 	mx2 := -1
 	mxi2 := -1
 	for i, _ := range maxVax2 {
-		fmt.Printf("Uite: %v %v\n", i, maxVax2[i])
 		if maxVax2[i] > mx2 {
 			mx2 = maxVax [i]
 			mxi2 = i
