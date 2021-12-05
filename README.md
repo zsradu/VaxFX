@@ -1,6 +1,8 @@
 # Vax FX
 
 Albanians team's web project developed for HackITall I 2021-2022
+Product based on studying the secondary effects of the Covid-19 vaccines, based on the types of the vaccine including booster.
+This project has been written in Golang and Revel framework + GORM Object–relational mapping program, html, CSS and JavaScript.
 
 Team composition:
 - Zamfir Radu-Ștefan
