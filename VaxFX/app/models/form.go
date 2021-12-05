@@ -20,5 +20,6 @@ type Form struct {
 type Effects struct {
 	gorm.Model
 	Name 		string
+	WhichEffect	int
 	FormID		uint
 }
