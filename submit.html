@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather">
+
+</head>
+
+<script>
+    function updateVaccine1() {
+        var selection = document.getElementById("vaccine1");
+        var text = selection.options[selection.selectedIndex].text;
+        if (text == "Johnson & Johnson") {
+            document.getElementById("form2").style.display = "none";
+            document.getElementById("boxes1").style.display = "none";
+            document.getElementById("form3").style.display = "block";
+            document.getElementById("boxes3").style.display = "block";
+        }
+        else {
+            if (text != "Select an Option") {
+                document.getElementById("boxes2").style.display = "none";
+                document.getElementById("boxes3").style.display = "none";
+                document.getElementById("form3").style.display = "none";
+                
+                document.getElementById("boxes1").style.display = "block";
+                document.getElementById("form2").style.display = "block";
+                document.getElementById("fileSubmit").style.display = "block";
+            }
+            else {
+                document.getElementById("boxes1").style.display = "none";
+                document.getElementById("boxes2").style.display = "none";
+                document.getElementById("boxes3").style.display = "none";
+                document.getElementById("form2").style.display = "none";
+                document.getElementById("form3").style.display = "none";
+            }
+        }
+    }
+
+    function updateVaccine2() {
+        var selection = document.getElementById("vaccine2");
+        var text = selection.options[selection.selectedIndex].text;
+        if (text != "Select an Option") {
+            document.getElementById("boxes2").style.display = "block";
+            document.getElementById("form3").style.display = "block";
+        }
+        else {
+            document.getElementById("boxes2").style.display = "none";
+            document.getElementById("boxes3").style.display = "none";
+            document.getElementById("form3").style.display = "none";
+        }
+    }
+
+    function updateVaccine3() {
+        var selection = document.getElementById("vaccine3");
+        var text = selection.options[selection.selectedIndex].text;
+        if (text != "Select an Option") {
+            document.getElementById("boxes3").style.display = "block";
+        }
+        else {
+            document.getElementById("boxes3").style.display = "none";
+        }
+    }
+
+    function checkData() {
+        var minimumData1 = document.getElementById("vaccine1");
+        var text1 = minimumData1.options[minimumData1.selectedIndex].text;
+        if (text1 == "Select an option") {
+            alert("You didnt pick any of the options!");
+        }
+    }
+
+</script>
+
+<body>
+    <div class="topnav">
+        <a href="#userdata">User data</a>
+        <a href="#about">Learn more about vaccines</a>
+        <a href="#submit">Submit a form</a>
+    </div>
+
+    <br>
+
+    <div>
+        <p>Our platform allows users to submit data about their experience regarding Covid-19 vaccines. You can do the
+            same below:</p> <br>
+
+        <div class="selectForm" id="form1">
+            <label for="form1">Select first dose:</label> <br>
+            <select id="vaccine1" onchange=updateVaccine1()>
+                <option value="none" selected>Select an Option</option>
+                <option value="Biontech/Pfizer">Biontech/Pfizer</option>
+                <option value="Moderna">Moderna</option>
+                <option value="Astrazeneca">Astrazeneca</option>
+                <option value="J&J">Johnson & Johnson</option>
+            </select>
+        </div>
+
+        <br>
+
+        <div class="boxes invisible" id="boxes1">
+            <form id="formCheckboxes1">
+                <label for="formCheckboxes1">Selectati efectele adverse:</label><br>
+
+                <input type="checkbox" id="effect1" name="effect1" value="">
+                <label for="effect1">Headache</label><br><br>
+                <input type="checkbox" id="effect2" name="effect2" value="">
+                <label for="effect2">Fever</label><br><br>
+                <input type="checkbox" id="effect3" name="effect3" value="">
+                <label for="effect3">Diziness</label> <br> <br>
+                <input type="checkbox" id="effect4" name="effect4" value="">
+                <label for="effect4">Exhaustion</label><br><br>
+                <input type="checkbox" id="effect5" name="effect5" value="">
+                <label for="effect5">Arm pain</label><br><br>
+                <input type="checkbox" id="effect6" name="effect6" value="">
+                <label for="effect6">Nausea</label><br><br>
+            </form>
+        </div>
+
+        <br>
+
+        <div class="selectForm invisible" id="form2">
+            <label for="form2">Select second dose:</label> <br>
+            <select id="vaccine2" onchange=updateVaccine2()>
+                <option value="none" selected>Select an Option</option>
+                <option value="Biontech/Pfizer">Biontech/Pfizer</option>
+                <option value="Moderna">Moderna</option>
+                <option value="Astrazeneca">Astrazeneca</option>
+                <option value="J&J">Johnson & Johnson</option>
+            </select>
+
+        </div>
+
+        <br>
+
+        <div class="boxes invisible" id="boxes2">
+            <form id="formCheckboxes1">
+                <label for="formCheckboxes1">Selectati efectele adverse:</label><br>
+
+                <input type="checkbox" id="effect7" name="effect7" value="">
+                <label for="effect7">Headache</label><br><br>
+                <input type="checkbox" id="effect8" name="effect8" value="">
+                <label for="effect8">Fever</label><br><br>
+                <input type="checkbox" id="effect9" name="effect9" value="">
+                <label for="effect9">Diziness</label> <br> <br>
+                <input type="checkbox" id="effect10" name="effect10" value="">
+                <label for="effect10">Exhaustion</label><br><br>
+                <input type="checkbox" id="effect11" name="effect11" value="">
+                <label for="effect11">Arm pain</label><br><br>
+                <input type="checkbox" id="effect12" name="effect12" value="">
+                <label for="effect12">Nausea</label><br><br>
+
+            </form>
+        </div>
+
+        <div class="selectForm invisible" id="form3">
+            <label for="fo3m3">Select booster dose:</label> <br>
+            <select id="vaccine3" onchange=updateVaccine3()>
+                <option value="none" selected>Select an Option</option>
+                <option value="Biontech/Pfizer">Biontech/Pfizer</option>
+                <option value="Moderna">Moderna</option>
+                <option value="Astrazeneca">Astrazeneca</option>
+                <option value="J&J">Johnson & Johnson</option>
+            </select>
+        </div>
+
+        <br>
+
+        <div class="boxes invisible" id="boxes3">
+            <form id="formCheckboxes1">
+                <label for="formCheckboxes1">Selectati efectele adverse:</label><br>
+
+                <input type="checkbox" id="effect13" name="effect13" value="">
+                <label for="effect13">Headache</label><br><br>
+                <input type="checkbox" id="effect14" name="effect14" value="">
+                <label for="effect14">Fever</label><br><br>
+                <input type="checkbox" id="effect15" name="effect15" value="">
+                <label for="effect15">Diziness</label> <br> <br>
+                <input type="checkbox" id="effect16" name="effect16" value="">
+                <label for="effect16">Exhaustion</label><br><br>
+                <input type="checkbox" id="effect17" name="effect17" value="">
+                <label for="effect17">Arm pain</label><br><br>
+                <input type="checkbox" id="effect18" name="effect18" value="">
+                <label for="effect18">Nausea</label><br><br>
+
+            </form>
+        </div>
+
+        <br>
+
+        <div id="fileSubmit" class="invisible" required>
+            <input type="file" id="myFile" name="filename">
+            <input type="submit">
+        </div>
+
+        <br>
+
+        <input type="submit" value="Submit data" onclick=checkData()>
+
+    </div>
+
+
+</body>
+
+</html>

@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
 html, body {
 	 min-height: 100%;
 	 margin: 0;
@@ -6,7 +8,48 @@ html, body {
 	 padding: 30px;
 	 background-image: linear-gradient(135deg, #dce2eb 0%, #c3b8e9 100%);
 	 box-sizing: border-box;
-     font-family: optima;
+  font-family: optima;
+  text-align: center;
+}
+
+.boxes {
+    font-size: 16px;
+    text-align: center;
+  }
+
+input[type="checkbox"] { display: none; }
+
+input[type="checkbox"] + label {
+  display: inline-block;
+  position: absolute;
+  font: 16px/20px 'Open Sans', Arial, sans-serif;
+  color: rgb(197, 33, 33);
+  cursor: pointer;
+}
+
+input[type="checkbox"] + label:last-child { margin-bottom: 0; }
+
+input[type="checkbox"] + label:before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #e70000;
+  position: absolute;
+  left: -50px;
+  opacity: .6;
+  -webkit-transition: all .12s, border-color .08s;
+  transition: all .12s, border-color .08s;
+}
+
+input[type="checkbox"]:checked + label:before {
+  width: 10px;
+  border-radius: 0;
+  opacity: 1;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 @font-face {
@@ -22,11 +65,12 @@ p {
 .topnav {
     padding-right: 100px;
     overflow: hidden;
+
   }
 
 .topnav a {
     float: right;
-    color: #263050;
+    color: #5a4469;
     text-align: center;
     padding: 20px 15px;
     text-decoration: none;
@@ -34,26 +78,31 @@ p {
     font-family: Merriweather;
   }
 
-.form1 {
+.selectForm {
     font-size: 20px;
     display: block;
     text-align: center;
 }
 
-.form2 {
-    font-size: 20px;
+.invisible {
     display: none;
+}
+
+.row {
+    display: flex;
+}
+
+.column {
+    flex: 50%;
+    padding: 10px;
+    text-align: center;
+    height: 60vh;
+}
+
+.centered {
     text-align: center;
 }
 
-.form3 {
-    font-size: 20px;
-    display: none;
-    text-align: center;
-}
-
-.checkboxes {
-    font-size: 20px;
-    display: none;
-    text-align: center;
+iframe {
+    border-style: groove;
 }
