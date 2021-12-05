@@ -1,0 +1,105 @@
+html, body {
+    min-height: 100%;
+    margin: 0;
+}
+body {
+    padding: 30px;
+    background-image: linear-gradient(135deg, #dce2eb 0%, #c3b8e9 100%);
+    box-sizing: border-box;
+    font-family: optima;
+}
+
+@font-face {
+   font-family: optima;
+   src: url(optima_medium-webfont.woff);
+}
+
+p {
+   font-size: 20px;
+   font-family: optima;
+}
+
+.topnav {
+   padding-right: 100px;
+   overflow: hidden;
+
+ }
+
+.topnav a {
+   float: right;
+   color: #263050;
+}
+
+
+/* Style the links inside the navigation bar */
+
+.topnav a {
+   float: left;
+   color: #f2f2f2;
+   text-align: center;
+   padding: 20px 15px;
+   text-decoration: none;
+
+   font-size: 20px;
+   font-family: Merriweather;
+ }
+
+.form1 {
+   font-size: 20px;
+   display: block;
+   text-align: center;
+}
+
+.form2 {
+   font-size: 20px;
+   display: none;
+   text-align: center;
+}
+
+.form3 {
+   font-size: 20px;
+   display: none;
+   text-align: center;
+}
+
+.checkboxes {
+   font-size: 20px;
+   display: none;
+   text-align: center;
+   font-size: 17px;
+}
+
+body,
+html {
+   margin-left: 5%;
+   margin-right: 5%;
+   margin-bottom: 5%;
+   margin-top: 5%;
+}
+
+
+/* For side by side figures */
+
+.row {
+   display: flex;
+}
+
+.column {
+   flex: 50%;
+   padding: 10px;
+   text-align: center;
+   height: 60vh;
+}
+
+.centered {
+   text-align: center;
+}
+
+iframe {
+   border-style: groove;
+
+}
+
+.invisible {
+   display: none;
+}

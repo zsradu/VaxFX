@@ -11,6 +11,7 @@ import (
 	"io/ioutil"
 	"VaxFX/app/models"
 	"VaxFX/app"
+	"os"
 )
 
 type App struct {
@@ -70,6 +71,12 @@ func (c App) Submit() revel.Result {
 	c.Params.Bind(&effectNames3[4], "E3Name5")
 	c.Params.Bind(&effectNames3[5], "E3Name6")
 	c.Validation.Required(form.Vac1).Message("First dose of vaccine required for submit")
+	
+	var MyFile os.File
+	c.Params.Bind(&MyFile, "MyFile")
+	//c.Validation.Required(MyFile).Message("Green pass required for submit!")
+	
+	
 	if !c.Validation.HasErrors() {
 		var effects1 []models.Effects
 		for i, name := range effectNames1 {
@@ -102,11 +109,12 @@ func (c App) Submit() revel.Result {
 		form.Effects2 = effects2
 		form.Effects3 = effects3
 		app.DB.Create(&form)
+		return c.Render()
 	}
-	c.Validation.Keep()
-	c.FlashParams()
+	//c.Validation.Keep()
+	//c.FlashParams()
 		
-	return c.Render()
+	return c.RenderTemplate("App/submit.html")
 }
 
 func (c App) DataSecFX() revel.Result {
