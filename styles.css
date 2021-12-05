@@ -100,3 +100,7 @@ iframe {
     border-style: groove;
 
 }
+
+.invisible {
+    display: none;
+}
