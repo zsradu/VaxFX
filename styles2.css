@@ -4,6 +4,10 @@
     src: url(optima_medium-webfont.woff);
 }
 
-/* iframe {
-    border-style: groove;
-} */
+.invisible {
+    display: none;
+}
+
+select, option {
+    text-align:center;   
+}
