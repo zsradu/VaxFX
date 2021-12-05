@@ -9,6 +9,8 @@ Team composition:
 - Cioc Alex-Andrei
 - Tudurean George-Alexandru
 
+Edit: Winner project of third place. 🥳
+
 Vaccination data provided by Our World in Data.[^1]
 Infection rates in Romania provided by DateLaZi.ro[^2] and Graphs.ro.[^3]
 
