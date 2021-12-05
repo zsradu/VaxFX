@@ -1,0 +1,53 @@
+Pagina care contine formularul de submit cu efecte adverse
+
+<br>
+<a href="/submit">Submit</a>
+<br>
+<a href="/secondary-effects">Secondary effects data</a>
+<br>
+<a href="/">Covid vaccination data</a>
+<br>
+<br>
+
+<form action="/submit" method="POST">
+    <label for="Vaccine1">Vaccine, dose 1:</label><br>
+    <select id="Vaccine1" name="Form.Vac1" size="4">
+        <option value="Pfizer">Pfizer</option>
+        <option value="Moderna">Moderna</option>
+        <option value="AstraZeneca">AstraZeneca</option>
+        <option value="Johnson & Johnson">Johnson & Johnson</option>
+    </select><br>
+
+    <label for="Effects1">Adverse effects, dose 1:</label><br>
+    <input type="checkbox" name="E1Name1">
+    <label for="Effects1">Durere de cap</label><br>
+    <input type="checkbox" name="E1Name2">
+    <label for="Effects1">Febra</label><br>
+    <input type="checkbox" name="E1Name3">
+    <label for="Effects1">Ameteala</label><br>
+    <input type="checkbox" name="E1Name4">
+    <label for="Effects1">Greata</label><br>
+
+    <label for="Vaccine2">Vaccine, dose 2:</label><br>
+    <select id="vac2" name="Form.Vac2" size="4">
+        <option value="Pfizer">Pfizer</option>
+        <option value="Moderna">Moderna</option>
+        <option value="AstraZeneca">AstraZeneca</option>
+        <option value="Johnson & Johnson">Johnson & Johnson</option>
+    </select><br>
+
+    <label for="Effects2">Adverse effects, dose 2:</label><br>
+    <input type="checkbox" name="E2Name1">
+    <label for="Effects2">Headache</label><br>
+    <input type="checkbox" name="E2Name2">
+    <label for="Effects2">Fever</label><br>
+    <input type="checkbox" name="E2Name3">
+    <label for="Effects2">Dizziness</label><br>
+    <input type="checkbox" name="E2Name4">
+    <label for="Effects2">Exhaustion</label><br>
+    <input type="submit" value="Submit!" />
+
+
+    <input type="file" id="MyFile" name="filename">
+    <input type="submit">
+</form>

@@ -7,12 +7,12 @@ module:testrunner
 # module:jobs
 
 
-GET     /                                       App.Submit
-POST    /                                       App.Submit
+GET     /submit                                 App.Submit
+POST    /submit                                 App.Submit
 
 GET     /secondary-effects                      App.DataSecFX
 
-GET     /covid-vaccine-data                     App.DataCovid
+GET     /                                       App.DataCovid
 
 # Ignore favicon requests
 GET     /favicon.ico                            404
