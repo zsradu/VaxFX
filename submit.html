@@ -21,6 +21,7 @@
             document.getElementById("boxes2").style.display = "none";
             document.getElementById("boxes3").style.display = "none";
             document.getElementById("submitButton").style.display = "block";
+            document.getElementById("fileSubmit").style.display = "block";
             document.getElementById("upload").style.display = "block";
         }
         else {
@@ -111,7 +112,7 @@
         <div class="w3-content w3-padding-32" style="max-width: 1400px;">
             <h2>Our platform allows users to submit data about their experience regarding Covid-19 vaccines. You can do the same below:</h2>
         </div>
-        
+        <form>
         <div class="w3-center">
             <div class="selectForm" id="form1">
             <label for="form1"><h5>Select first dose:</h5></label>
@@ -124,7 +125,7 @@
             </select>
         </div>
         <div class="boxes invisible container" id="boxes1">
-            <form id="formCheckboxes1">
+            <!-- <form id="formCheckboxes1"> -->
                 <br>
                 <label for="formCheckboxes1"><h4>Select the secondary effects that you experienced:</h4></label>
                 <input type="checkbox" id="effect1" name="effect1" value="">
@@ -139,7 +140,7 @@
                 <label for="effect5">Arm pain</label><br><br>
                 <input type="checkbox" id="effect6" name="effect6" value="">
                 <label for="effect6">Nausea</label><br><br>
-            </form>
+            <!-- </form> -->
         </div>
         <div class="selectForm invisible" id="form2">
             <label for="form2"><h5>Select second dose:</h5></label>
@@ -152,7 +153,7 @@
             </select>
         </div>
         <div class="boxes invisible" id="boxes2">
-            <form id="formCheckboxes1">
+            <!-- <form id="formCheckboxes1"> -->
                 <br>
                 <label for="formCheckboxes1"><h4>Select the secondary effects that you experienced:</h4></label>
                 <input type="checkbox" id="effect7" name="effect7" value="">
@@ -168,7 +169,7 @@
                 <input type="checkbox" id="effect12" name="effect12" value="">
                 <label for="effect12">Nausea</label><br><br>
 
-            </form>
+            <!-- </form> -->
         </div>
         <div class="selectForm invisible" id="form3">
             <label for="fo3m3"><h5>Select booster dose:</h5></label>
@@ -181,7 +182,7 @@
             </select>
         </div>
         <div class="boxes invisible" id="boxes3">
-            <form id="formCheckboxes1">
+            <!-- <form id="formCheckboxes1"> -->
                 <br>
                 <label for="formCheckboxes1"><h4>Select the secondary effects that you experienced:</h4></label>
                 <input type="checkbox" id="effect13" name="effect13" value="">
@@ -197,7 +198,7 @@
                 <input type="checkbox" id="effect18" name="effect18" value="">
                 <label for="effect18">Nausea</label><br><br>
 
-            </form>
+            <!-- </form> -->
         </div>
         <div id="upload" class="invisible" style="padding-top: 32px;">
             <h4>Upload green pass:</h4>
@@ -210,6 +211,7 @@
             <input class="invisible w3-center w3-content" type="submit" id="submitButton" value="Submit data" onclick=checkData()>
         </div>     
     </div>
+    </form>
 
         </div>
         
