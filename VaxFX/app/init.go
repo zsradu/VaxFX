@@ -29,8 +29,10 @@ func InitDB() {
 		fmt.Printf("Failed gorm.Open: %v\n", err)
 		panic("")
 	}
-	//DB.DropTable(&models.Account{})
+	DB.DropTable(&models.Form{})
 	DB.CreateTable(&models.Form{})
+	DB.DropTable(&models.Effects{})
+	DB.CreateTable(&models.Effects{})
 }
 
 func init() {
