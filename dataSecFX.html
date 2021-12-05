@@ -37,18 +37,23 @@
   <p class="w3-xlarge">Find out what they say</p>
 </header>
 
+
 <!-- First Grid -->
 <div class="w3-row-padding w3-padding-64 w3-container">
-    <div class="w3-content" style="max-width: 1400px;">
+    <div class="w3-content" style="max-width: 1100px;">
         <div class="w3-twothird" style="padding: 16px;">
-        <h1>According to user reports...</h1>
-        <h5 class="w3-padding-32">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h5>
-
-        <p class="w3-text-grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint
-            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-            laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <h3>Out of {{.TotalUsers1}} entries, there have been reported these following secondary effects after the first dose of the vaccine:</h3>
+        <ul>
+            <li><p>{{.Headaches1}} headaches</p></li>
+            <li><p>{{.Fevers1}} symptoms of fever</p></li>
+            <li><p>{{.Dizzinesses1}} episodes of dizziness</p></li>
+            <li><p>{{.Exhaustions1}} feelings of exhaustion</p></li>
+            <li><p>{{.ArmPains1}} episodes of pain in the arm</p></li>
+            <li><p>{{.Nauseas1}} symptoms of nausea</p></li>
+            <li><p>Most symptoms were found for the {{.WorstVax1}} vaccine.</p></li>
+        </ul>
         </div>
-
+        <p></p>
         <div class="w3-third w3-center" style="padding: 16px;">
         <p></p>
         </div>
@@ -57,24 +62,52 @@
 
 <!-- Second Grid -->
 <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
-    <div class="w3-content" style="max-width: 1400px;">
+    <div class="w3-content" style="max-width: 1100px;">
         <div class="w3-third w3-center" style="padding: 16px;">
         <p></p>
         </div>
 
         <div class="w3-twothird" style="padding: 16px;">
-        <h1>Lorem Ipsum</h1>
-        <h5 class="w3-padding-32">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h5>
+            <h3>For the second dose of the vaccine, out of {{.TotalUsers2}} entries,
+            there have been reported these following secondary effects:</h3>
+            <ul>
+                <li><p>{{.Headaches2}} headaches</p></li>
+                <li><p>{{.Fevers2}} symptoms of fever</p></li>
+                <li><p>{{.Dizzinesses2}} episodes of dizziness</p></li>
+                <li><p>{{.Exhaustions2}} feelings of exhaustion</p></li>
+                <li><p>{{.ArmPains2}} episodes of pain in the arm</p></li>
+                <li><p>{{.Nauseas2}} symptoms of nausea</p></li>
+                <li><p>Most symptoms were found for the {{.WorstVax2}} vaccine.</p></li>
+            </ul> 
+        </div>
+    </div>
+</div>
 
-        <p class="w3-text-grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint
-            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-            laboris nisi ut aliquip ex ea commodo consequat.</p>
+<!-- Third Grid -->
+<div class="w3-row-padding w3-padding-64 w3-container">
+    <div class="w3-content" style="max-width: 1100px;">
+        <div class="w3-twothird" style="padding: 16px;">
+        <h3>For the booster shot, out of {{.TotalUsers3}} entries,
+        there have been reported these following secondary effects:</h3>
+        <ul>
+            <li><p>{{.Headaches3}} headaches</p></li>
+            <li><p>{{.Fevers3}} symptoms of fever</p></li>
+            <li><p>{{.Dizzinesses3}} episodes of dizziness</p></li>
+            <li><p>{{.Exhaustions3}} feelings of exhaustion</p></li>
+            <li><p>{{.ArmPains3}} episodes of pain in the arm</p></li>
+            <li><p>{{.Nauseas3}} symptoms of nausea</p></li>
+            <li><p>Most symptoms were found for the {{.WorstVax3}} vaccine.</p></li>
+        </ul>
+        </div>
+        <p></p>
+        <div class="w3-third w3-center" style="padding: 16px;">
+        <p></p>
         </div>
     </div>
 </div>
 
 <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
-    <h1 class="w3-content w3-large">Your honest reports keep others updated and help them make informed decisions</h1>
+    <h1 class="w3-content w3-large">Your honest reports keep others updated and help them make informed decisions!</h1>
 </div>
 
 <!-- Footer -->
