@@ -1,6 +1,6 @@
 # Vax FX
 
-Albanians team's web project developed for HackITall I 2021-2022.
+Team web project developed for HackITall I 2021-2022.
 Product based on collecting data regarding the secondary effects of the Covid-19 vaccines, based on the types of the vaccine, including booster shot.
 This project has been written in Golang and Revel framework + GORM Object–relational mapping program, HTML, CSS and JavaScript.
 
